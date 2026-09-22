@@ -1,0 +1,86 @@
+{
+  "seed": 42,
+  "threat_model": "indirect/retrieved-content injection in RAG",
+  "split": "technique-disjoint (train on seen techniques 0-4; test adds novel techniques 5-7)",
+  "seen_techniques": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "novel_techniques": [
+    5,
+    6,
+    7
+  ],
+  "n_train": 1400,
+  "n_test": 700,
+  "n_test_poisoned": 350,
+  "n_test_benign": 350,
+  "n_test_novel_poisoned": 175,
+  "detectors_all_test": {
+    "Rules only": {
+      "precision": 0.614,
+      "recall": 0.514,
+      "f1": 0.56,
+      "fp_rate": 0.323,
+      "tp": 180,
+      "fp": 113,
+      "tn": 237,
+      "fn": 170
+    },
+    "Machine-learning only": {
+      "precision": 1.0,
+      "recall": 0.549,
+      "f1": 0.708,
+      "fp_rate": 0.0,
+      "tp": 192,
+      "fp": 0,
+      "tn": 350,
+      "fn": 158
+    },
+    "Hybrid (rules + machine learning)": {
+      "precision": 0.69,
+      "recall": 0.72,
+      "f1": 0.705,
+      "fp_rate": 0.323,
+      "tp": 252,
+      "fp": 113,
+      "tn": 237,
+      "fn": 98
+    }
+  },
+  "detectors_novel_only": {
+    "Rules only (novel techniques)": {
+      "precision": 0.369,
+      "recall": 0.377,
+      "f1": 0.373,
+      "fp_rate": 0.323,
+      "tp": 66,
+      "fp": 113,
+      "tn": 237,
+      "fn": 109
+    },
+    "Machine-learning only (novel techniques)": {
+      "precision": 1.0,
+      "recall": 0.097,
+      "f1": 0.177,
+      "fp_rate": 0.0,
+      "tp": 17,
+      "fp": 0,
+      "tn": 350,
+      "fn": 158
+    },
+    "Hybrid (novel techniques)": {
+      "precision": 0.405,
+      "recall": 0.44,
+      "f1": 0.422,
+      "fp_rate": 0.323,
+      "tp": 77,
+      "fp": 113,
+      "tn": 237,
+      "fn": 98
+    }
+  }
+}
